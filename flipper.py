@@ -18,6 +18,6 @@ def roll(bot, trigger):
         hill = False
     tegrat = transform(target)
     if hill:
-        bot.say("%s %s %s %s %s (@_@;)" % (tegrat, target, tegrat, target, tegrat))
+        bot.say("(╮°-°)╯︵ %s %s %s %s %s (@_@;)" % (tegrat, target, tegrat, target, tegrat))
     else:
-        bot.say(tegrat)
+        bot.say("(╮°-°)╯︵ %s" % tegrat)
