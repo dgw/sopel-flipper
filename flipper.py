@@ -2,13 +2,15 @@
 
 from __future__ import unicode_literals
 from upsidedown import transform
-from sopel.module import rule
+from sopel.module import intent, rule
 
 @rule('^flips (.+)')
+@intent('ACTION')
 def flips(bot, trigger):
     bot.say("(╯°□°）╯︵ %s" % transform(trigger.group(1)))
 
 @rule('^rolls (.+)')
+@intent('ACTION')
 def roll(bot, trigger):
     target = trigger.group(1)
     if target.endswith(' down a hill'):
