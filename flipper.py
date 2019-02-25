@@ -7,7 +7,11 @@ from sopel.module import intent, rule
 @rule('^flips (.+)')
 @intent('ACTION')
 def flips(bot, trigger):
-    bot.say("(╯°□°）╯︵ %s" % transform(trigger.group(1)))
+    target = trigger.group(1)
+    if target == 'a table':
+        bot.say("(╯°□°）╯︵ ┻━┻")
+    else:
+        bot.say("(╯°□°）╯︵ %s" % transform(target))
 
 @rule('^rolls (.+)')
 @intent('ACTION')
