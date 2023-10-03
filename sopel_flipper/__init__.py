@@ -1,20 +1,26 @@
-# -*- coding: utf-8 -*-
+# coding=utf8
+"""sopel-flipper
 
-from __future__ import unicode_literals
+A Sopel plugin that flips text in response to CTCP ACTIONs.
+"""
+from __future__ import unicode_literals, absolute_import, division, print_function
+
 from upsidedown import transform
-from sopel.module import intent, rule
 
-@rule('^flips (.+)')
-@intent('ACTION')
+from sopel import plugin
+
+
+@plugin.rule('^flips (.+)')
+@plugin.ctcp
 def flips(bot, trigger):
     target = trigger.group(1).strip()
-    if target == 'a table':
+    if target in ['a table', 'the table']:
         bot.say("(╯°□°）╯︵ ┻━┻")
     else:
         bot.say("(╯°□°）╯︵ %s" % transform(target))
 
-@rule('^rolls (.+)')
-@intent('ACTION')
+@plugin.rule('^rolls (.+)')
+@plugin.ctcp
 def roll(bot, trigger):
     target = trigger.group(1).strip()
     if target.endswith(' down a hill'):
