@@ -14,7 +14,7 @@ readme = { file=["README.md", "NEWS"], content-type="text/markdown" }
 
 [project]
 name = "sopel-flipper"
-version = "1.0.0.dev0"
+version = "1.0.0"
 description = "A Sopel plugin that flips text in response to CTCP ACTIONs."
 
 authors = [
