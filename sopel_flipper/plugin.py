@@ -12,6 +12,7 @@ from sopel import plugin, tools
 LOGGER = tools.get_logger('flipper')
 
 
+@plugin.commands('flip', 'roll')
 @plugin.action_commands('flips', 'rolls')
 def flip_and_roll(bot, trigger):
     target = (trigger.group(2) or '').strip()
@@ -20,7 +21,10 @@ def flip_and_roll(bot, trigger):
         # without any arguments
         return plugin.NOLIMIT
 
-    mode = trigger.group(1)[:-1]  # 'flip' or 'roll'
+    mode = trigger.group(1)
+    if mode.endswith('s'):
+        # action commands must be stripped of the trailing 's'
+        mode = mode[:-1]
 
     if mode == 'flip':
         if target in ['a table', 'the table']:
