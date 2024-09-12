@@ -1,5 +1,11 @@
 ## Changelog
 
+### 1.1.0
+
+Added:
+* Horizontal `.mirror` command feature (#10)
+
+
 ### 1.0.0
 
 Reworked for the Python-3-only world.
